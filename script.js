@@ -11,4 +11,16 @@ async function fetchJokes(category) {
 document.addEventListener('DOMContentLoaded' async function() {
     const jokesIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const jokes = await fetchJokes(jokesIds);
-})
+    const jokesListDiv = document.getElementById('jokesList')
+
+    jokes.forEach(joke => {
+      const jokeDiv = document.createElement('div');
+      jokeDiv.innerHTML = `           
+        <h2>${joke.setup}</h2>
+        <p>Type: ${joke.Type}</p>
+        <a href="joke,html?id=${joke.id}">View punchline</a>
+        <hr>
+      `; 
+      jokesListDiv.appendChild(jokeDiv);
+    });
+});
