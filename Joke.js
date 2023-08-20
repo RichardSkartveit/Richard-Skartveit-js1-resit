@@ -28,22 +28,3 @@ document.addEventListener('DOMContentLoaded', async function() {
     });
 });
 
-async function fetchJokeDetails(jokeId) {
-    try {
-        const response = await fetch(`https://api.noroff.dev/api/v1/jokes/${jokeId}`);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching joke details:', error);
-    }
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const revealButton = document.getElementById('revealButton');
-    const punchlineDiv = document.getElementById('punchline');
-
-    revealButton.addEventListener('click', function() {
-        punchlineDiv.classList.remove('hidden'); 
-    });
-});
