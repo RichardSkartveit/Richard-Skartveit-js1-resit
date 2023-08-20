@@ -1,12 +1,7 @@
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const jokeId = urlParams.get('id');
-
-async function fetchJokeDetails() {
+async function fetchJokeDetails(jokeId) {
     try {
         const response = await fetch(`https://api.noroff.dev/api/v1/jokes/${jokeId}`);
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         console.error('Error fetching joke details:', error);
     }
@@ -17,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(queryString);
     const jokeId = urlParams.get('id');
 
-    const joke = await fetchJokeDetails(jokeId); // Fetch joke details
+    const joke = await fetchJokeDetails(jokeId);
 
     const jokeDetailsDiv = document.getElementById('jokeDetails');
     jokeDetailsDiv.innerHTML = `
@@ -29,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     punchlineDiv.innerText = joke.punchline;
 
     document.getElementById('revealButton').addEventListener('click', () => {
-        punchlineDiv.classList.remove('hidden'); // Remove the "hidden" class
+        punchlineDiv.classList.remove('hidden');
     });
 });
 
