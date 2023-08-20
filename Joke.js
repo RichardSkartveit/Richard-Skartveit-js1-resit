@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(queryString);
     const jokeId = urlParams.get('id');
 
-    const joke = await fetchJokeDetails(jokeId);
+    const joke = await fetchJokeDetails(jokeId); // Fetch joke details
 
     const jokeDetailsDiv = document.getElementById('jokeDetails');
     jokeDetailsDiv.innerHTML = `
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     punchlineDiv.innerText = joke.punchline;
 
     document.getElementById('revealButton').addEventListener('click', () => {
-        punchlineDiv.classList.remove('hidden'); 
+        punchlineDiv.classList.remove('hidden'); // Remove the "hidden" class
     });
 });
 

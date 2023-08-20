@@ -1,6 +1,6 @@
-async function fetchJokes(category) {
+async function fetchJokes(jokeIds) {
     try {
-        const response = await fetch(`https://api.noroff.dev/api/v1/jokes?category=${category}`);
+        const response = await fetch('https://api.noroff.dev/api/v1/jokes');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -26,18 +26,3 @@ document.addEventListener('DOMContentLoaded', async function() {
         jokesListDiv.appendChild(jokeDiv);
     });
 });
-
-
-async function fetchJokes(jokeIds) {
-    try {
-        const response = await fetch('https://api.noroff.dev/api/v1/jokes');
-        const data = await response.json();
-
-    
-        const filteredJokes = data.filter(joke => jokeIds.includes(joke.id));
-        
-        return filteredJokes;
-    } catch (error) {
-        console.error('Error fetching jokes:', error);
-    }
-}
