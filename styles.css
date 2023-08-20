@@ -13,6 +13,10 @@ h1 {
     margin-bottom: 20px;
 }
 
+button {
+    margin: 10px;
+}
+
 .jokesList {
     margin-top: 20px;
 }
