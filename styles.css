@@ -12,9 +12,6 @@ body {
 h1 {
     margin-bottom: 20px;
 }
-button {
-    margin: 10px;
-}
 
 .jokesList {
     margin-top: 20px;
@@ -30,10 +27,6 @@ button {
 
 .punchline {
     margin-top: 10px;
-}
-
-.hidden {
-    display: none;
 }
 
 .hidden {
